@@ -245,33 +245,57 @@ header .logo {
     margin-top: 3px;
 }
 
-/* Adaugă acest cod în fișierul CSS pentru a face conținutul ordonat pe ecrane mici */
+/* Resetare stiluri pentru a evita margini și umpluturi nedorite */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Stiluri pentru ecrane mari */
 body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row; /* Elemente pe orizontală */
+    flex-wrap: wrap; /* Permite elementelor să se așeze pe mai multe linii */
+    justify-content: center; /* Centrează elementele pe orizontală */
+    align-items: center; /* Centrează elementele pe verticală */
+    height: 100vh; /* Ocupă întreaga înălțime a ferestrei */
     padding: 10px;
 }
 
+/* Stiluri pentru container */
 .container {
     width: 100%;
-    max-width: 700px; /* Ajustează după nevoie */
+    max-width: 1200px; /* Ajustează lățimea maximă pentru ecrane mari */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap; /* Permite aranjarea pe mai multe linii */
     gap: 15px; /* Spațiere între elemente */
 }
 
+/* Stiluri pentru fiecare element */
 .element {
-    width: 100%;
+    flex: 1 1 calc(33.333% - 10px); /* 3 elemente pe rând, cu spațiu între ele */
     padding: 15px;
     background-color: #f0f0f0;
     border-radius: 8px;
     text-align: center;
+}
+
+/* Stiluri pentru ecrane mici (telefoane) */
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column; /* Elemente pe verticală pe telefoane */
+        height: auto; /* Permite înălțimea automată pe telefoane */
+    }
+
+    .container {
+        width: 100%;
+        flex-direction: column; /* Elemente pe verticală în container */
+    }
+
+    .element {
+        width: 100%; /* Elemente să ocupe întreaga lățime pe telefoane */
+        margin-bottom: 10px; /* Spațiu între elemente */
+    }
 }
