@@ -73,8 +73,3 @@ function subscribeNewsletter(event) {
 
 
 
-
-document.getElementById("burger").addEventListener("click", function () {
-    document.querySelector("nav").classList.toggle("active");
-  });
-  

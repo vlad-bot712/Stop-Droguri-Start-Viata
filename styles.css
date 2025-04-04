@@ -355,137 +355,29 @@ nav {
 
 
 
-/* --- BAZA GENERALĂ --- */
-* {
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-  }
-  
-  /* --- HEADER + MENIU --- */
-  header {
-    background-color: #6a0dad;
-    color: white;
-    padding: 20px;
-    position: relative;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  #burger {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-  }
-  
-  /* --- SECȚIUNI --- */
-  section {
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-  .sponsor-carousel {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .sponsor-track a img {
-    width: 150px;
-  }
-  
-  /* --- FORMULAR --- */
-  #newsletter form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  #newsletter input[type="email"] {
-    flex: 1;
-    padding: 10px;
-  }
-  
-  #newsletter button {
-    padding: 10px 20px;
-    background-color: #6a0dad;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* --- FOOTER --- */
-  footer {
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  /* =========================
-     MEDIA QUERIES pentru mobil
-     ========================= */
-  @media (max-width: 768px) {
-    nav ul {
-      display: none;
-      flex-direction: column;
-      background-color: #6a0dad;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      padding: 10px 0;
-    }
-  
-    nav.active ul {
-      display: flex;
-    }
-  
-    #burger {
-      display: block;
-    }
-  
+@media (max-width: 768px) {
     nav {
+      display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      padding: 10px;
     }
   
-    #newsletter form {
+    .nav-links {
+      display: flex;
       flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
     }
   
-    #newsletter input[type="email"],
-    #newsletter button {
-      width: 100%;
+    .nav-links li {
+      margin: 5px 0;
     }
   
-    .sponsor-track a img {
-      width: 100px;
+    .logo {
+      font-size: 22px;
+      margin-bottom: 10px;
     }
   }
   
