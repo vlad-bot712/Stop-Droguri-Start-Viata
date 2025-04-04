@@ -238,64 +238,254 @@ footer {
 
 /* Logo rotund */
 header .logo {
-    width: 40px; /* Dimensiunea logo-ului */
-    height: 40px;
+    width: 65px; /* Dimensiunea logo-ului */
+    height: 65px;
     border-radius: 50%; /* Face imaginea rotundă */
     margin-right: 20px; /* Distanță față de meniul de navigație */
-    margin-top: 3px;
+    margin-top: 1px;
 }
 
-/* Resetare stiluri pentru a evita margini și umpluturi nedorite */
-* {
-    box-sizing: border-box;
+/* Stiluri de bază pentru navigare */
+nav {
+    position: relative;
+}
+
+/* Ascunde link-urile de navigare pe mobil, implicit */
+#nav-links {
+    display: flex;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-/* Stiluri pentru ecrane mari */
-body {
-    display: flex;
-    flex-direction: row; /* Elemente pe orizontală */
-    flex-wrap: wrap; /* Permite elementelor să se așeze pe mai multe linii */
-    justify-content: center; /* Centrează elementele pe orizontală */
-    align-items: center; /* Centrează elementele pe verticală */
-    height: 100vh; /* Ocupă întreaga înălțime a ferestrei */
-    padding: 10px;
+/* Stiluri pentru butonul de meniu toggle */
+.menu-toggle {
+    display: none; /* Ascuns implicit */
+    flex-direction: column;
+    cursor: pointer;
 }
 
-/* Stiluri pentru container */
-.container {
-    width: 100%;
-    max-width: 1200px; /* Ajustează lățimea maximă pentru ecrane mari */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; /* Permite aranjarea pe mai multe linii */
-    gap: 15px; /* Spațiere între elemente */
+.menu-toggle .bar {
+    height: 4px;
+    width: 25px;
+    background-color: #333; /* Schimbă acest lucru în funcție de culoarea dorită */
+    margin: 3px 0;
 }
 
-/* Stiluri pentru fiecare element */
-.element {
-    flex: 1 1 calc(33.333% - 10px); /* 3 elemente pe rând, cu spațiu între ele */
-    padding: 15px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    text-align: center;
-}
-
-/* Stiluri pentru ecrane mici (telefoane) */
-@media screen and (max-width: 768px) {
-    body {
-        flex-direction: column; /* Elemente pe verticală pe telefoane */
-        height: auto; /* Permite înălțimea automată pe telefoane */
-    }
-
-    .container {
+/* Stiluri responsive */
+@media (max-width: 768px) {
+    #nav-links {
+        display: none; /* Ascunde link-urile pe mobil */
+        flex-direction: column;
         width: 100%;
-        flex-direction: column; /* Elemente pe verticală în container */
+        background-color: #fff; /* Ajustează culoarea de fundal */
+        position: absolute;
+        top: 50px; /* Ajustează în funcție de înălțimea header-ului */
+        left: 0;
+        z-index: 1000;
     }
 
-    .element {
-        width: 100%; /* Elemente să ocupe întreaga lățime pe telefoane */
-        margin-bottom: 10px; /* Spațiu între elemente */
+    #nav-links.active {
+        display: flex; /* Arată link-urile când sunt active */
+    }
+
+    .menu-toggle {
+        display: flex; /* Arată butonul de meniu toggle */
     }
 }
+
+
+#newsletter {
+    background-color: #fff;
+    padding: 40px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+#newsletter input[type="email"] {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#newsletter-message {
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+}
+
+#social-media {
+    text-align: center;
+    padding: 40px;
+    background: #fff;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.social-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 30px;
+    padding: 20px;
+}
+
+.social-slide {
+    min-width: 100px;
+    transition: transform 0.4s ease-in-out;
+}
+
+.social-slide img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.4s ease-in-out;
+}
+
+.social-slide:hover img {
+    transform: scale(1.2) rotate(5deg);
+}
+
+
+
+
+
+
+/* --- BAZA GENERALĂ --- */
+* {
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* --- HEADER + MENIU --- */
+  header {
+    background-color: #6a0dad;
+    color: white;
+    padding: 20px;
+    position: relative;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  #burger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* --- SECȚIUNI --- */
+  section {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .sponsor-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .sponsor-track a img {
+    width: 150px;
+  }
+  
+  /* --- FORMULAR --- */
+  #newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  #newsletter input[type="email"] {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  #newsletter button {
+    padding: 10px 20px;
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* --- FOOTER --- */
+  footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* =========================
+     MEDIA QUERIES pentru mobil
+     ========================= */
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background-color: #6a0dad;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+    }
+  
+    nav.active ul {
+      display: flex;
+    }
+  
+    #burger {
+      display: block;
+    }
+  
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    #newsletter form {
+      flex-direction: column;
+    }
+  
+    #newsletter input[type="email"],
+    #newsletter button {
+      width: 100%;
+    }
+  
+    .sponsor-track a img {
+      width: 100px;
+    }
+  }
+  

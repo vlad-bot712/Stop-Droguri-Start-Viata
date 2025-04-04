@@ -24,7 +24,7 @@
 
     <section id="hero">
         <div class="overlay"></div>
-        <h1>Bine ai venit la Proiectul Antidrog!</h1>
+        <h1>Bine ai venit la Proiectul Antidrog</h1>
         <p>Împreună pentru o lume fără dependențe!</p>
         <a href="#" class="btn" onclick="showSection('mai-multe')">Află mai multe</a>
     </section>
@@ -37,26 +37,36 @@
         </div>
     </div>
 
+
+    <section id="newsletter">
+        <h2>Abonează-te la Newsletter</h2>
+        <p>Primește noutăți direct pe email!</p>
+        <form id="newsletter-form" onsubmit="return subscribeNewsletter(event)">
+            <input type="email" id="newsletter-email" placeholder="Introdu emailul tău" required>
+            <button type="submit" class="btn">Abonează-te</button>
+        </form>
+        <p id="newsletter-message" class="hidden">Mulțumim pentru abonare! 📨</p>
+    </section>
+    
     <!-- Sponsori -->
     <section id="sponsori">
-        <h2>Sponsori Nostri</h2>
+        <h2>Sponsori</h2>
         <div class="sponsor-list">
-            <a href="https://sponsor1.com" target="_blank"><img src="https://cdn.discordapp.com/attachments/1188145120609042514/1357366962715492493/IMG_8213.png?ex=67eff1fe&is=67eea07e&hm=f6353ffa8400832a95af555388b3977de970f8cf6e3491521675a16cba2c464b&" alt="Laleli SRL"></a>
-            <a href="https://www.facebook.com/DecoNatureBois/?locale=es_LA" target="_blank"><img src="https://cdn.discordapp.com/attachments/1188145120609042514/1356551864010936320/images.jpg?ex=67ef9ddf&is=67ee4c5f&hm=567951db97f6064f64fb03c2e35bc481d10aa8d3f4c1e1e15e60c3b0e5f0b649&" alt="Deco Natura Bois"></a>
-            <a href="https://sponsor3.com" target="_blank"><img src="sponsor3.png" alt="Sponsor 3"></a>
+            <a href="https://pufuletiilaleli.ro/" target="_blank"><img src="https://cdn.discordapp.com/attachments/1188145120609042514/1357612365969100800/image.png?ex=67f0d68b&is=67ef850b&hm=157a74090de6936dc2cdc35a8545ce5ff816850831a75721c3c09fae81a6a81d&" alt="Laleli SRL"></a>
+            <a href="https://www.facebook.com/DecoNatureBois/?locale=es_LA" target="_blank"><img src="https://cdn.discordapp.com/attachments/1188145120609042514/1357419108895031498/7642131D-A1D3-4973-9881-AE335A963EFD.jpg?ex=67f0cb4f&is=67ef79cf&hm=e1baf28bb6f25b86e4c0137eb4f0c5f959b2c7a8b836f7fa057d175149a220d4&" alt="Deco Natura Bois"></a>
         </div>
     </section>
 
     <!-- Restul secțiunilor -->
     <section id="proiect-antidrog" class="hidden">
         <h2>Proiect Antidrog</h2>
-        <p>"Elevii clasei a IX-a D  de la Liceul API Zalau au realizat un proiect pentru prevenirea consumului substantelor interzise si droguri.</p>
+        <p>"Fii schimbarea pe care vrei să o vezi în lume." - Mahatma Gandhi</p>
     </section>
 
     <section id="chestionar" class="hidden">
         <h2>Chestionar</h2>
-        <p>"Sub acest text veti putea gasi un chestionar realizat pentru obtinerea unui grafic de raspunsuri ale tinerilor si pentru a vedea defapt cati adolescenti cunosc realitatea despre acest obicei prost"</p>
-        <p><a href="http://www.apizal.ro">ACCESATI PENTRU CHESTIONAR!!</a></p>
+        <p>"Cunoașterea este cheia prevenirii."</p>
+
     </section>
 
     <section id="mai-multe" class="hidden">
@@ -77,6 +87,35 @@
     <footer>
         <p>&copy; 2025 Proiect Antidrog. Toate drepturile rezervate.</p>
     </footer>
+
+    <div class="social-slider">
+        <a href="https://www.facebook.com/share/156VwtVpA2/?mibextid=wwXIfr" target="_blank" class="social-slide">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/stopdroguri_startviata?igsh=cWdwY3BrYTZtcG41" target="_blank" class="social-slide">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@stopdroguristartviata?is_from_webapp=1&sender_device=pc" target="_blank" class="social-slide">
+            <img src="https://cdn.discordapp.com/attachments/1188145120609042514/1357604910291619922/descarcare_1.png?ex=67f0cf99&is=67ef7e19&hm=0572a2277a3c3413fa7a1619dc16ce459f5e2e44da1901ad1404b051ab197d09&" alt="TikTok">
+        </a>
+    </div>
+
+
+
+    <header>
+        <nav>
+          <button id="burger">&#9776;</button>
+          <ul>
+            <li><a href="#despre">Despre</a></li>
+            <li><a href="#activitati">Activități</a></li>
+            <li><a href="#sponsori">Sponsori</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+    
+    
 
 </body>
 </html>
