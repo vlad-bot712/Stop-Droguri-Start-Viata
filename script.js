@@ -19,62 +19,78 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-function toggleMenu() {
-    const navLinks = document.getElementById('nav-links');
-    navLinks.classList.toggle('active'); // Togglează clasa 'active'
-}
-
-// Funcțiile existente showSection și closeModal pot rămâne neschimbate
-function showSection(sectionId) {
-    // Ascunde toate secțiunile
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => section.classList.add('hidden'));
-
-    // Arată secțiunea selectată
-    const selectedSection = document.getElementById(sectionId);
-    if (selectedSection) {
-        selectedSection.classList.remove('hidden');
-    }
-
-    // Dacă deschizi într-un modal, adaugă logica ta de modal aici
-    const modal = document.getElementById('modal');
-    modal.classList.remove('hidden');
-    document.getElementById('modal-content-section').innerHTML = selectedSection.innerHTML; // Exemplu: încarcă conținutul secțiunii
-}
-
-function closeModal() {
-    const modal = document.getElementById('modal');
-    modal.classList.add('hidden');
-}
-
 function subscribeNewsletter(event) {
     event.preventDefault();
+    
     const emailInput = document.getElementById('newsletter-email');
     const message = document.getElementById('newsletter-message');
 
-    // Simulează trimiterea (poți conecta la un backend real)
+    // Afișează mesajul de bun venit
     if (emailInput.value.trim() !== "") {
-        message.classList.remove('hidden');
+        message.classList.remove('hidden'); // Asigură-te că mesajul este vizibil
         message.textContent = `Bun venit, ${emailInput.value.trim()}! Ești acum abonat!`;
-        emailInput.value = "";
+        emailInput.value = ""; // Resetează câmpul de email
     }
-    return false;
-}
-
-function subscribeNewsletter(event) {
-    event.preventDefault();
-
-    const emailInput = document.getElementById('newsletter-email');
-    const message = document.getElementById('newsletter-message');
 }
 
 
+let currentSponsorIndex = 0;
 
+function changeSponsor(direction) {
+    const sponsors = document.querySelectorAll('.sponsor-item');
+    sponsors[currentSponsorIndex].classList.remove('active');
 
+    // Actualizează indexul curent
+    currentSponsorIndex += direction;
 
+    // Asigură-te că indexul este în limitele corecte
+    if (currentSponsorIndex < 0) {
+        currentSponsorIndex = sponsors.length - 1; // Revine la ultimul sponsor
+    } else if (currentSponsorIndex >= sponsors.length) {
+        currentSponsorIndex = 0; // Revine la primul sponsor
+    }
 
-<script>
-function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("active");
+    sponsors[currentSponsorIndex].classList.add('active');
 }
-</script>
+
+
+
+
+
+
+
+// Variabile pentru buton și imagini
+const stopButton = document.getElementById('stopAnimationBtn');
+const rotatingImages = document.querySelectorAll('.rotating-img');
+
+// Funcție pentru a porni animația (la intrarea în secțiune)
+function startAnimation() {
+    rotatingImages.forEach(image => {
+        image.style.animationPlayState = 'running'; // Pornim animația
+    });
+}
+
+// Funcție pentru a opri animația
+function stopAnimation() {
+    rotatingImages.forEach(image => {
+        image.style.animationPlayState = 'paused'; // Oprim animația
+    });
+}
+
+// Când se apasă pe buton, oprește animația
+stopButton.addEventListener('click', stopAnimation);
+
+// Detectăm când utilizatorul ajunge în secțiunea "Mai multe" (scroll)
+const sectionMaiMulte = document.getElementById('mai-multe');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            startAnimation(); // Pornește animația când secțiunea devine vizibilă
+        }
+    });
+}, { threshold: 0.5 });
+
+observer.observe(sectionMaiMulte);
+
+
+
